@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container" v-if="data.name">
+            <div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="head" >
+                            {{ data.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="profile">
+                            <div id="foto-prof">
+                                <div id="img-prof">
+                                    <img src="Asset/prof.png" alt="profile">
+                                </div>
+                            </div>
+                            <div id="data-prof">
+                                    <table class="tables" border="0">
+                                        <tr>
+                                            <td>Height:</td>
+                                            <td>{{ data.height }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mass:</td>
+                                            <td>{{ data.mass }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hair Color:</td>
+                                            <td>{{ data.hair_color }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Skin Color:</td>
+                                            <td>{{ data.skin_color }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Birth Year:</td>
+                                            <td>{{ data.birth_year }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender: </td>
+                                            <td>{{ data.gender }}</td>
+                                        </tr>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" v-if="films.length">
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="head_movie">
+                        {{ data.name }} Movie's
+                    </div>
+                    <div class="see_movie">
+                        <div class="col-xs-3" v-for="film in films">
+                            <div class="vid">
+                                <img src="Asset/play.png" alt="play">
+                            </div>
+                            <div class="ket">
+                                <div class="ket-head">
+                                    {{ film.title }}
+                                </div>
+                                <div class="ket-body">
+                                    <p>
+                                    Director:
+                                    {{ film.director }}
+                                    </p>
+    
+                                    <p>
+                                    Release:
+                                    {{ film.release_date }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="head_movie">
+                        Related Another Movie's
+                    </div>
+                    <div class="see_movie">
+                        <div class="col-xs-14">
+                            <div class="vid-c">
+                                <div class="vid-c-head">
+                                {{ related.title }}
+                                </div>
+                                <div class="vid-c-det">
+                                <table width="80%">
+                                    <tr>
+                                        <td>Director:</td>
+                                        <td>{{ related.director }}</td>
+                                    </tr>
+                                        <tr>
+                                        <td>Producer:</td>
+                                        <td>{{ related.producer }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Release Date:</td>
+                                        <td>{{ related.release_date }}</td>
+                                    </tr>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="ket-c">
+                                <div class="ket-body-c">
+                                    <p>{{ related.opening_crawl }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.11/vue.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
